@@ -18,7 +18,7 @@ from django.contrib.auth.models import User, Group
 
 class Profilemanager(models.Manager):
     def validate(self, form_data):
-        errors = []  # arrary where we will store the error messages
+        errors = []  # array where we will store the error messages
 
         if len(form_data['address']) == 0 and len(form_data['address']) > 3:
             # check if address is blank
@@ -36,9 +36,9 @@ class Profilemanager(models.Manager):
         if len(form_data['mobile']) == 0 and len(form_data['mobile']) > 3:
             # check if mobile is blank
             errors.append(
-                "Mobie Phone number is required to recieve mobil alerts.")
+                "Mobile Phone number is required to receive mobile alerts.")
 
-        return errors  # send error messages to the  page
+        return errors  # send error messages to the page
 
 
 class School(models.Model):
@@ -56,7 +56,7 @@ class School(models.Model):
         return self.name
 
     def __str__(self):
-        string_output = "id:{} name:{}address:{}zip:{} phone:{} logo:{} prim_color:{} sec_color:{}"
+        string_output = "id:{} name:{} address:{} zip:{} phone:{} logo:{} prim_color:{} sec_color:{}"
         return string_output.format(
             self.id,
             self.name,
@@ -178,7 +178,7 @@ class Profile(models.Model):
         return self.user
 
     def __str__(self):
-        string_output = "id:{} address:{} city:{} state{} zip{} email{} phone{} district{} school{}gradyear{} is_active{} image{}"
+        string_output = "id:{} address:{} city:{} state:{} zip:{} email:{} phone:{} district:{} school:{} gradyear:{} is_active:{} avatar:{}"
         return string_output.format(
             self.id,
             self.address,
